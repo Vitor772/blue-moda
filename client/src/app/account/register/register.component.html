@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Cadastrar</h1>
+            </div>
+
+            <app-input-text formControlName='displayName' [label]="'Nome'"></app-input-text>
+            <app-input-text formControlName='email' [label]="'Email '"></app-input-text>
+            <app-input-text formControlName='password' [label]="'Senha'" [type]="'password'"></app-input-text>
+            <app-input-text formControlName='confirmPassword' [label]="'Confirmar Senha'" [type]="'password'">
+            </app-input-text>
+
+            <ul class="text-danger list-unstyled" *ngIf="errors">
+                <li *ngFor="let error of errors">{{error}}</li>
+            </ul>
+
+            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary btn-block"
+                type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
